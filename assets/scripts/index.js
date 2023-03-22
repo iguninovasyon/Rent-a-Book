@@ -13,7 +13,7 @@ class User { // Burak
         
     }
     update(id) {
-
+        // Status değişme
     }
     get() {
         // Tüm kullanıcıları getir.
