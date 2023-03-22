@@ -36,7 +36,7 @@ class LeasedBooks {
         this.totalPrice = book.price * day
     }
     add() {
-        // Onur
+        leasedBooks.push(this);
     }
 }
 
