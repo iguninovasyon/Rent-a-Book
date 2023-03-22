@@ -9,4 +9,73 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #0d1117;
     color: white;
+   
 }
+.button {
+
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    color: azure;
+    background-color: #161B22;
+   font-size: x-large;
+   }
+
+.button2{
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    color: azure;
+    background-color: #161B22;
+   font-size: x-large;
+}  
+
+.button3{
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    color: azure;
+    background-color: #161B22;
+    font-size: x-large;
+   
+}    
+   
+.button:hover {
+   
+    background-color: black; /*Carrot*/
+   
+    color:  orange;
+}
+.button2:hover {
+   
+    background-color: black; /*Carrot*/
+   
+    color:  orange;
+}
+.button3:hover {
+   
+    background-color: black; /*Carrot*/
+   
+    color:  orange;
+}
+.Kullanıcılar{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.Kaydet{
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    color: azure;
+    background-color: #161B22;
+   font-size: large;
+   margin-left: 25px;
+   margin-bottom: 5px;
+}
+.Kaydet:hover{
+    background-color: black; /*Carrot*/
+   
+    color:  orange;
+}
+.Kitaplar {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+
