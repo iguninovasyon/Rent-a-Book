@@ -11,31 +11,25 @@ body {
     color: white;
    
 }
+.Panel {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem;
+}
+
 .button {
-
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     color: azure;
     background-color: #161B22;
-   font-size: x-large;
-   }
-
-.button2{
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    color: azure;
-    background-color: #161B22;
-   font-size: x-large;
-}  
-
-.button3{
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    color: azure;
-    background-color: #161B22;
-    font-size: x-large;
-   
-}    
+    flex: 1;
+    border: none;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+ 
    
 .button:hover {
    
