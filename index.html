@@ -8,7 +8,40 @@
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 <body>
+    <div  class="Panel">
+        <div style="display:inline-flex;;">  
+            <button style="width: 500px; height: 50px;" class="button">Kullanıcılar</button>
+            <button style="width: 500px; height: 50px;" class="button2">Kitaplar</button>
+            <button style="width: 500px; height: 50px;" class="button3">Kiralanan Kitaplar</button>
+        </div>   
+    </div>
+    <div class="Kullanıcılar">
+        <div>
+            <h1>KULLANICI EKLE</h1>
+            <hr width="300px"/>
+            <h3>Ad soyad : <INPUT TYPE="text" NAME="ad" SIZE=10 VALUE=""> </h3>
+            <h3>Cinsiyet :  <SELECT NAME="Media"> <OPTION SELECTED> Cinsiyet </OPTION> Kadın <OPTION> Erkek </SELECT>   </h3>
+            <br>
+            <button style="width: 250px; height: 20px;" class="Kaydet"> KAYDET</button>
+            <br>
+            <hr width="300px"/>
+            
+        </div>
+    </div>
     
+    <div class="Kitaplar">
+        <div>
+            <h1>KİTAP EKLE</h1>
+            <hr width="300px"/>
+            <h3>Kitap adı : <INPUT TYPE="text" NAME="KitapAd" SIZE=10 VALUE=""> </h3>
+            <h3>Yazar adı : <INPUT TYPE="text" NAME="YazarAd" SIZE=10 VALUE=""> </h3>
+            <h3>Günlük ücret : <INPUT TYPE="number" NAME="KitapUcret" SIZE=10 VALUE=""> </h3>
+            
+
+
+        </div>
+    </div>
+   
 
     <script src="assets/scripts/index.js"></script>
 </body>
