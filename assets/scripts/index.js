@@ -13,16 +13,7 @@ class User {
         //Add a new user
         users.push(this);
     }
-    update(id) {
-        // Change status using id
-    }
 }
-
-const user1 = new User("agagaeg", "eafeaf", false);
-user1.add();
-const user2 = new User("fr", "rt", false);
-user2.add();
-console.log(users);
 
 class Book {
     constructor(author, name, dailyPrice, status = false) {
@@ -127,16 +118,44 @@ form.addEventListener("submit", addRentABook);
 
 function addUser() {
     //Create a new user
+    const userFullName = $("#userFullName").val();
+    const useGender = $("input[name^='gender']:checked").val();
+    if (!userFullName || !useGender) return toastify("Lütfen boş alan bırakmayınız.", "error");
+
+    const user = new User(userFullName, useGender, false);
+    user.add();
+    toastify("Kullanıcı başarıyla eklendi.", "success");
+    usersTableWrite()
 }
 
 function addBook() {
     //Create a new book
-    const  book = new Book(1 , "Ömer Seyfettin" , "Kaşağı" , 2 , "rented");
+    const book = new Book(1, "Ömer Seyfettin", "Kaşağı", 2, "rented");
     book.add();
 }
 
-function usersTableWrite(data) {
+function usersTableWrite() {
     // Datayı tabloya yaz.
+    if (users.length == 0) {
+        $("#users-table").append(`
+        <tr>
+            <th scope="row" colspan="4">Kullanıcı bulunamadı.</th>
+        </tr>
+        `);
+        return;
+    }
+
+    $("#users-table").html("");
+    users.map((user, index) => {
+        $("#users-table").append(`
+        <tr>
+            <th scope="row">${index + 1}</th>
+            <td>${user.fullName}</td>
+            <td>${user.gender[0].toUpperCase() + user.gender.substring(1)}</td>
+            <td>${user.status ? "Evet" : "Hayır"}</td>
+        </tr>
+        `);
+    })
 }
 
 function booksTableWrite(data) {
@@ -196,4 +215,21 @@ function randomId() {
         s4() +
         s4()
     );
+}
+
+function toastify(message, type = "success") {
+    // Show a success toast
+    Toastify({
+        text: message,
+        duration: 3000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: type === "success" ? "linear-gradient(to right, #00b09b, #96c93d)" : "linear-gradient(to right, #ff5f6d, #ffc371)",
+            borderRadius: "5px",
+            fontWeight: "bold",
+        }
+    }).showToast();
 }
