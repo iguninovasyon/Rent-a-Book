@@ -125,6 +125,10 @@ function addUser() {
     const user = new User(userFullName, useGender, false);
     user.add();
     toastify("Kullanıcı başarıyla eklendi.", "success");
+    $("#userFullName").val("");
+    $("input:radio[name='gender']:checked").each(function (i) {
+        this.checked = false;
+    });
     usersTableWrite()
 }
 
