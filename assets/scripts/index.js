@@ -49,7 +49,6 @@ class LeasedBooks {
 const bookDropdown = document.getElementById("book");
 const userDropdown = document.getElementById("user");
 
-//This function creates the leasedBookForm with users and books
 function createLeaseABookForm() {
     // Get the book dropdown element
 
@@ -111,10 +110,6 @@ function addRentABook(event) {
     leasedBooksTableWrite();
 }
 
-const form = document.getElementById("leasedBookForm");
-form.addEventListener("submit", addRentABook);
-
-
 function addUser() {
     //Create a new user
     const userFullName = $("#userFullName").val();
@@ -136,15 +131,20 @@ function addBook() {
     var title = $("#bookTitle").val();
     var author = $("#authorName").val();
     var dailyPrice = $("#dailyPrice").val();
+
     if (!title || !author || !dailyPrice) return toastify("Lütfen boş alan bırakmayınız.", "error");
     const book = new Book(author, title, dailyPrice);
+    
     book.add();
     booksTableWrite();
+    bookDropdownUpdate();
+
     toastify("Kitap başarıyla eklendi.", "success");
     $("#bookTitle").val("");
     $("#authorName").val("");
     $("#dailyPrice").val("");
 }
+
 function usersTableWrite() {
     // Datayı tabloya yaz.
     if (users.length == 0) {
@@ -170,7 +170,6 @@ function usersTableWrite() {
 }
 
 function booksTableWrite() {
-    /////////////////EKLE//////////////////
     $("#book_table").html("");
     books.map((book, index) => {
         $("#book_table").append(`
@@ -183,14 +182,9 @@ function booksTableWrite() {
         </tr>
         `);
     })
-    //////////////////EKLE//////////////////
 }
 
-//This function populates the already existed table with the leasedBooks
-
 function leasedBooksTableWrite() {
-    // Datayı tabloya yaz.
-
     const tableBody = document.getElementById("leasedTable");
     tableBody.innerHTML = "";
 
@@ -225,24 +219,11 @@ function randomId() {
         Math.floor((1 + Math.random()) * 0x10000)
             .toString(16)
             .substring(1);
-    return (
-        s4() +
-        s4() +
-        "-" +
-        s4() +
-        "-" +
-        s4() +
-        "-" +
-        s4() +
-        "-" +
-        s4() +
-        s4() +
-        s4()
+    return (s4() + s4() + "-" + s4() + "-" + s4() + "-" + s4() + "-" + s4() + s4() + s4()
     );
 }
 
 function toastify(message, type = "success") {
-    // Show a success toast
     Toastify({
         text: message,
         duration: 3000,
@@ -259,5 +240,7 @@ function toastify(message, type = "success") {
 }
 
 function loadPage() {
+    const form = document.getElementById("leasedBookForm");
+    form.addEventListener("submit", addRentABook);
     createLeaseABookForm();
 }
