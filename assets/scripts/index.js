@@ -68,6 +68,10 @@ function createLeaseABookForm() {
     });
 
     // Populate the user dropdown
+    userDropdownUpdate()
+}
+
+function userDropdownUpdate() {
     users.forEach((user) => {
         const option = document.createElement("option");
         option.value = user.fullName;
@@ -130,6 +134,7 @@ function addUser() {
         this.checked = false;
     });
     usersTableWrite()
+    userDropdownUpdate()
 }
 
 function addBook() {
