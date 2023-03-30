@@ -15,8 +15,6 @@ class User {
     }
 }
 
-const user1 = new User('agaege','erkek',false);
-user1.add();
 class Book {
     constructor(author, name, dailyPrice, status = false) {
         this.id = randomId();
@@ -34,12 +32,6 @@ class Book {
         return (this.status = !this.status);
     }
 }
-
-const book1 = new Book("agaeg", "sgg", 50, false);
-book1.add();
-const book2 = new Book("aegeag", "aegaeg", 5, false);
-book2.add();
-console.log(books);
 
 class LeasedBooks {
     // Onur
@@ -62,15 +54,18 @@ function createLeaseABookForm() {
     // Get the book dropdown element
 
     // Populate the book dropdown
+    bookDropdownUpdate()
+    // Populate the user dropdown
+    userDropdownUpdate()
+}
+
+function bookDropdownUpdate() {
     books.forEach((book) => {
         const option = document.createElement("option");
         option.value = book.name;
         option.text = book.name;
         bookDropdown.appendChild(option);
     });
-
-    // Populate the user dropdown
-    userDropdownUpdate()
 }
 
 function userDropdownUpdate() {
@@ -81,9 +76,6 @@ function userDropdownUpdate() {
         userDropdown.appendChild(option);
     });
 }
-
-createLeaseABookForm();
-
 
 function addRentABook(event) {
     // create a leasedBook if it's status is false
@@ -244,4 +236,8 @@ function toastify(message, type = "success") {
             fontWeight: "bold",
         }
     }).showToast();
+}
+
+function loadPage() {
+    createLeaseABookForm();
 }
