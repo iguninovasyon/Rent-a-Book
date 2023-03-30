@@ -76,12 +76,55 @@
   <!-- Finish Users -->
 
   <!-- Begin Books (Adem)-->
-  <section id="books">
-    <div>
-      Kitap Ekle Form
-    </div>
-    <div>
-      Kitapları Listele
+  <section class="container p-4" id="books">
+    <h1 class="bd-title mb-0">Kitaplar
+    </h1>
+    <p class="bd-lead">Kitaplar ekleyebilir ve kitapları görebilirsiniz.</p>
+    <div class="row">
+      <div class="col-md-6">
+        <form>
+          <div class="mb-3">
+            <label for="bookTitle" class="form-label">Kitap Adı</label>
+            <input type="text" class="form-control" id="bookTitle">
+          </div>
+          <div class="mb-3">
+            <label for="authorName" class="form-label">Yazar Adı</label>
+            <input type="text" class="form-control" id="authorName">
+          </div>
+          <div class="mb-3">
+            <label for="dailyPrice" class="form-label">Kiralama Ücreti</label>
+            <input type="number" class="form-control" id="dailyPrice">
+          </div>
+
+
+          <button type="button" onclick="addBook()" class="w-100 btn btn-success">Kitap Ekle</button>
+        </form>
+      </div>
+
+      <div class="col-md-6">
+        <table class="table">
+          <thead>
+            <tr>
+
+              <th scope="col">#</th>
+              <th scope="col">Kitap Adı</th>
+              <th scope="col">Yazar Adı</th>
+              <th scope="col">Kiralama Ücreti</th>
+              <th scope="col">Kiralandımı</th>
+            </tr>
+
+
+
+          </thead>
+          <tbody id="book_table">
+
+            <tr>
+              <th scope="row" colspan="6">Kullanıcı bulunamadı.</th>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
   <!-- Finish Books -->

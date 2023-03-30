@@ -133,11 +133,18 @@ function addUser() {
 }
 
 function addBook() {
-    //Create a new book
-    const book = new Book(1, "Ömer Seyfettin", "Kaşağı", 2, "rented");
+    var title = $("#bookTitle").val();
+    var author = $("#authorName").val();
+    var dailyPrice = $("#dailyPrice").val();
+    if (!title || !author || !dailyPrice) return toastify("Lütfen boş alan bırakmayınız.", "error");
+    const book = new Book(author, title, dailyPrice);
     book.add();
+    booksTableWrite();
+    toastify("Kitap başarıyla eklendi.", "success");
+    $("#bookTitle").val("");
+    $("#authorName").val("");
+    $("#dailyPrice").val("");
 }
-
 function usersTableWrite() {
     // Datayı tabloya yaz.
     if (users.length == 0) {
@@ -162,8 +169,21 @@ function usersTableWrite() {
     })
 }
 
-function booksTableWrite(data) {
-    // Datayı tabloya yaz.
+function booksTableWrite() {
+    /////////////////EKLE//////////////////
+    $("#book_table").html("");
+    books.map((book, index) => {
+        $("#book_table").append(`
+        <tr>
+        <th scope="row">${index + 1}</th>
+        <td>${book.name}</td>
+        <td>${book.author}</td>
+        <td>${book.dailyPrice}</td>
+        <td>${book.rented ? "Evet" : "Hayır"}</td>
+        </tr>
+        `);
+    })
+    //////////////////EKLE//////////////////
 }
 
 //This function populates the already existed table with the leasedBooks
