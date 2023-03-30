@@ -74,39 +74,50 @@
   <!-- Finish Books -->
 
   <!-- Begin LeasedBooks (Onur) -->
-  <section id="leased-books">
-    <div>
-      <form>
-        <label for="book">Select a Book:</label>
-        <select id="book" name="book"></select>
+  <section id="leased-books" class="container p-4">
+    <div class="row">
+      <div class="col">
+        <form action="" id="leasedBookForm">
+          <div class="form-group">
+            <label for="book">Select a Book:</label>
+            <select class="form-control" id="book">
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="user">Select a User:</label>
+            <select class="form-control" id="user">
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="day">Enter a day</label>
+            <input type="text" class="form-control" id="day" placeholder="Enter a day">
+          </div>
+    
+          <button class="btn btn-primary" type="submit" id="leasedSubmit">Lease The Book</button>
+        </form>
+      </div>
 
-        <br>
+      
+        <div class="col">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Book</th>
+                <th scope="col">User</th>
+                <th scope="col">Days leased</th>
+                <th scope="col">Total Price</th>
+              </tr>
+            </thead>
+           <tbody id="leasedTable">
+           </tbody>
+          </table>
+          
+        </div>
 
-        <label for="user">Select a User:</label>
-        <select id="user" name="user"></select>
-
-        <br>
-
-        <label for="day">Day:</label>
-        <input type="number" id="day" name="day">
-        <input type="submit" value="Lease The Book" id="submit" name="leasebook-submit">
-      </form>
     </div>
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Book</th>
-            <th>User</th>
-            <th>Days Leased</th>
-            <th>Total Price</th>
-          </tr>
-        </thead>
-        <tbody>
+   
 
-        </tbody>
-      </table>
-    </div>
+    
   </section>
   <!-- Finish LeasedBooks -->
 

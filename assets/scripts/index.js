@@ -15,6 +15,8 @@ class User {
     }
 }
 
+const user1 = new User('agaege','erkek',false);
+user1.add();
 class Book {
     constructor(author, name, dailyPrice, status = false) {
         this.id = randomId();
@@ -112,7 +114,7 @@ function addRentABook(event) {
     leasedBooksTableWrite()
 }
 
-const form = document.querySelector("form");
+const form = document.getElementById("leasedBookForm");
 form.addEventListener("submit", addRentABook);
 
 
@@ -171,7 +173,7 @@ function booksTableWrite(data) {
 function leasedBooksTableWrite() {
     // Datayı tabloya yaz.
 
-    const tableBody = document.querySelector("table tbody");
+    const tableBody = document.getElementById("leasedTable");
     tableBody.innerHTML = "";
 
     leasedBooks.forEach((leasedBook) => {
