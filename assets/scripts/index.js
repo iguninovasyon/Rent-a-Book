@@ -115,7 +115,8 @@ function addRentABook(event) {
     console.log(leasedBooks);
     book.status = !book.status;
     user.status = !book.status;
-    leasedBooksTableWrite()
+    toastify("Kitap başarıyla kiralandı.");
+    leasedBooksTableWrite();
 }
 
 const form = document.getElementById("leasedBookForm");
