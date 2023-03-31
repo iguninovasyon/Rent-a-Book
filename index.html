@@ -13,7 +13,7 @@
 </head>
 
 <body onload="loadPage()">
-  
+
   <!-- Begin Header-->
   <header class="p-4 mb-4 border-bottom">
     <div class="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
@@ -99,7 +99,7 @@
             <label for="dailyPrice" class="form-label">Kiralama Ücreti</label>
             <input type="number" class="form-control" id="dailyPrice">
           </div>
-          <button type="button" onclick="addBook()" class="w-100 btn btn-success">Kitap gEkle</button>
+          <button type="button" onclick="addBook()" class="w-100 btn btn-success">Kitap Ekle</button>
         </form>
       </div>
       <div class="col-md-6">
@@ -126,54 +126,52 @@
 
   <!-- Begin LeasedBooks (Onur) -->
   <section id="leased-books" class="container p-4">
-    <h1 class="bd-title mb-0">Kiralanmış Kitaplar</h1>    
+    <h1 class="bd-title mb-0">Kiralanmış Kitaplar</h1>
     <p class="bd-lead">Kitap kirayabilir ve Kiralanmış kitapları görüntüleyebilirsiniz.</p>
     <div class="row">
       <div class="col">
         <form action="" id="leasedBookForm">
-          <div class="form-group">
-            <label for="book">Kitap seçiniz:</label>
-
+          <div class="form-group mb-3">
+            <label for="book" class="form-label">Kitap seçiniz:</label>
             <select class="form-control" id="book">
-              <option value="" selected disabled>kitap seçiniz</option>
+              <option value="" selected disabled>Kitap seçiniz</option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="user">Kullanıcı seçiniz:</label>
+          <div class="form-group mb-3">
+            <label for="user" class="form-label">Kullanıcı seçiniz:</label>
             <select class="form-control" id="user">
-              <option value="" selected disabled>kullanıcı seçiniz</option>
+              <option value="" selected disabled>Kullanıcı seçiniz</option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="day">Gün giriniz</label>
+          <div class="form-group mb-3">
+            <label for="day" class="form-label">Gün giriniz</label>
             <input type="text" class="form-control" id="day" placeholder="Gün giriniz">
           </div>
-    
-          <button class="btn btn-primary" type="submit" id="leasedSubmit">Kitabı kirala</button>
+          <button type="submit" id="leasedSubmit"class="w-100 btn btn-success">Kitabı kirala</button>
         </form>
       </div>
 
-      
-        <div class="col">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Kitap</th>
-                <th scope="col">Kullanıcı</th>
-                <th scope="col">Gün sayısı</th>
-                <th scope="col">Toplam ücret</th>
-              </tr>
-            </thead>
-           <tbody id="leasedTable">
-           </tbody>
-          </table>
-          
-        </div>
+
+      <div class="col">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Kitap</th>
+              <th scope="col">Kullanıcı</th>
+              <th scope="col">Gün sayısı</th>
+              <th scope="col">Toplam ücret</th>
+            </tr>
+          </thead>
+          <tbody id="leasedTable">
+          </tbody>
+        </table>
+
+      </div>
 
     </div>
-   
 
-    
+
+
   </section>
   <!-- Finish LeasedBooks -->
 

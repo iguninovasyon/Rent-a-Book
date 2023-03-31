@@ -25,6 +25,7 @@ class Book {
     }
     add() {
         //add a book
+        console.log(books, this);
         books.push(this);
     }
     update() {
@@ -50,15 +51,13 @@ const bookDropdown = document.getElementById("book");
 const userDropdown = document.getElementById("user");
 
 function createLeaseABookForm() {
-    // Get the book dropdown element
-
-    // Populate the book dropdown
     bookDropdownUpdate()
     // Populate the user dropdown
     userDropdownUpdate()
 }
 
 function bookDropdownUpdate() {
+    bookDropdown.innerHTML = '<option value="" selected disabled>Kitap seçiniz</option>';
     books.forEach((book) => {
         const option = document.createElement("option");
         option.value = book.name;
@@ -68,6 +67,7 @@ function bookDropdownUpdate() {
 }
 
 function userDropdownUpdate() {
+    userDropdown.innerHTML = '<option value="" selected disabled>Kullanıcı seçiniz</option>';
     users.forEach((user) => {
         const option = document.createElement("option");
         option.value = user.fullName;
@@ -199,7 +199,8 @@ function leasedBooksTableWrite() {
 
     if (leasedBooks.length === 0) {
         const row = document.createElement("tr");
-        const messageCell = document.createElement("td");
+        const messageCell= document.createElement("th");
+        messageCell.setAttribute("colspan", "4");
         messageCell.textContent = "Kiralanmış bir kitap bulunamadı.";
         row.appendChild(messageCell);
         tableBody.appendChild(row);
