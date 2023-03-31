@@ -35,11 +35,9 @@ class Book {
     }
 }
 
-const book1 = new Book("agaeg", "sgg", 50, false);
+const book1 = new Book("aefaef","aegag","40",false);
 book1.add();
-const book2 = new Book("aegeag", "aegaeg", 5, false);
-book2.add();
-console.log(books);
+
 
 class LeasedBooks {
     // Onur
@@ -85,6 +83,7 @@ function userDropdownUpdate() {
 createLeaseABookForm();
 
 
+
 function addRentABook(event) {
     // create a leasedBook if it's status is false
     // User shouldn't already leased a book
@@ -92,23 +91,32 @@ function addRentABook(event) {
 
     const book = books.find((book) => book.name === bookDropdown.value);
     if (!book) {
+        toastify("lütfen bir kitap seçiniz",type="error")
         return console.log(`Book '${bookDropdown.value}' not found`);
     }
 
     if (book.status) {
+        toastify(`'${bookDropdown.value}' kiralanmış durumda`,type="error");
         return console.log(`Book '${bookDropdown.value}' is already leased`);
     }
 
     const user = users.find((user) => user.fullName === userDropdown.value);
     if (!user) {
+        toastify("lütfen bir kullanıcı seçiniz",type="error");
         return console.log(`User '${userDropdown.value}' not found`);
     }
 
     if (user.status) {
+        toastify(`'${userDropdown.value}' zaten bir kitap kiralamış durumda`,type="error");
         return console.log(`User '${userDropdown.value}' is already leased a book`);
     }
 
     const day = document.getElementById("day").value;
+
+    if(!day || day < 1){
+
+       return toastify("Lütfen gün giriniz",type="error");
+    }
 
     const leasedBook1 = new LeasedBooks(book, day, user);
     leasedBook1.add();
@@ -177,36 +185,43 @@ function booksTableWrite(data) {
 //This function populates the already existed table with the leasedBooks
 
 function leasedBooksTableWrite() {
-    // Datayı tabloya yaz.
-
     const tableBody = document.getElementById("leasedTable");
     tableBody.innerHTML = "";
 
-    leasedBooks.forEach((leasedBook) => {
+    if (leasedBooks.length === 0) {
         const row = document.createElement("tr");
-
-        const bookCell = document.createElement("td");
-        bookCell.textContent = leasedBook.book;
-
-        const userCell = document.createElement("td");
-        userCell.textContent = leasedBook.user;
-
-        const dayCell = document.createElement("td");
-        dayCell.textContent = leasedBook.day;
-
-        const priceCell = document.createElement("td");
-        priceCell.textContent = leasedBook.totalPrice;
-
-        row.appendChild(bookCell);
-        row.appendChild(userCell);
-        row.appendChild(dayCell);
-        row.appendChild(priceCell);
-
+        const messageCell = document.createElement("td");
+        messageCell.textContent = "Kiralanmış bir kitap bulunamadı.";
+        row.appendChild(messageCell);
         tableBody.appendChild(row);
-    });
+    } else {
+        leasedBooks.forEach((leasedBook) => {
+            const row = document.createElement("tr");
 
+            const bookCell = document.createElement("td");
+            bookCell.textContent = leasedBook.book;
 
+            const userCell = document.createElement("td");
+            userCell.textContent = leasedBook.user;
+
+            const dayCell = document.createElement("td");
+            dayCell.textContent = leasedBook.day;
+
+            const priceCell = document.createElement("td");
+            priceCell.textContent = leasedBook.totalPrice;
+
+            row.appendChild(bookCell);
+            row.appendChild(userCell);
+            row.appendChild(dayCell);
+            row.appendChild(priceCell);
+
+            tableBody.appendChild(row);
+        });
+    }
 }
+
+leasedBooksTableWrite();
+
 
 function randomId() {
     let s4 = () =>

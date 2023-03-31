@@ -81,21 +81,23 @@
       <div class="col">
         <form action="" id="leasedBookForm">
           <div class="form-group">
-            <label for="book">Select a Book:</label>
+            <label for="book">Kitap seçiniz:</label>
             <select class="form-control" id="book">
+              <option value="" selected disabled>kitap seçiniz</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="user">Select a User:</label>
+            <label for="user">Kullanıcı seçiniz:</label>
             <select class="form-control" id="user">
+              <option value="" selected disabled>kullanıcı seçiniz</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="day">Enter a day</label>
-            <input type="text" class="form-control" id="day" placeholder="Enter a day">
+            <label for="day">Gün giriniz</label>
+            <input type="text" class="form-control" id="day" placeholder="Gün giriniz">
           </div>
     
-          <button class="btn btn-primary" type="submit" id="leasedSubmit">Lease The Book</button>
+          <button class="btn btn-primary" type="submit" id="leasedSubmit">Kitabı kirala</button>
         </form>
       </div>
 
@@ -104,10 +106,10 @@
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">Book</th>
-                <th scope="col">User</th>
-                <th scope="col">Days leased</th>
-                <th scope="col">Total Price</th>
+                <th scope="col">Kitap</th>
+                <th scope="col">Kullanıcı</th>
+                <th scope="col">Gün sayısı</th>
+                <th scope="col">Toplam ücret</th>
               </tr>
             </thead>
            <tbody id="leasedTable">
