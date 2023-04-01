@@ -263,14 +263,23 @@ function loadPage() {
     form.addEventListener("submit", addRentABook);
     createLeaseABookForm();
     pageSection();
-    $(window).on('hashchange', function(e){
+    $(window).on('hashchange', function (e) {
         pageSection(e.originalEvent.newURL.split("#")[1]);
     });
 }
 
 function pageSection(hash) {
     if (hash) {
-        sectionToggle("#"+hash);
+        sectionToggle("#" + hash);
+        const a = document.querySelectorAll("a");
+
+        a.forEach(element => {
+            $(element).removeClass("link-secondary")
+            if (hash == element.href.split("#")[1]) {
+                $(element).addClass("link-secondary")
+            }
+
+        });
     } else {
         sectionToggle("#users");
     }
