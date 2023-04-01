@@ -83,31 +83,31 @@ function addRentABook(event) {
 
     const book = books.find((book) => book.name === bookDropdown.value);
     if (!book) {
-        toastify("lütfen bir kitap seçiniz",type="error")
+        toastify("lütfen bir kitap seçiniz", type = "error")
         return console.log(`Book '${bookDropdown.value}' not found`);
     }
 
     if (book.status) {
-        toastify(`'${bookDropdown.value}' kiralanmış durumda`,type="error");
+        toastify(`'${bookDropdown.value}' kiralanmış durumda`, type = "error");
         return console.log(`Book '${bookDropdown.value}' is already leased`);
     }
 
     const user = users.find((user) => user.fullName === userDropdown.value);
     if (!user) {
-        toastify("lütfen bir kullanıcı seçiniz",type="error");
+        toastify("lütfen bir kullanıcı seçiniz", type = "error");
         return console.log(`User '${userDropdown.value}' not found`);
     }
 
     if (user.status) {
-        toastify(`'${userDropdown.value}' zaten bir kitap kiralamış durumda`,type="error");
+        toastify(`'${userDropdown.value}' zaten bir kitap kiralamış durumda`, type = "error");
         return console.log(`User '${userDropdown.value}' is already leased a book`);
     }
 
     const day = document.getElementById("day").value;
 
-    if(!day || day < 1){
+    if (!day || day < 1) {
 
-       return toastify("Lütfen gün giriniz",type="error");
+        return toastify("Lütfen gün giriniz", type = "error");
     }
 
     const leasedBook1 = new LeasedBooks(book, day, user);
@@ -143,7 +143,7 @@ function addBook() {
 
     if (!title || !author || !dailyPrice) return toastify("Lütfen boş alan bırakmayınız.", "error");
     const book = new Book(author, title, dailyPrice);
-    
+
     book.add();
     booksTableWrite();
     bookDropdownUpdate();
@@ -199,7 +199,7 @@ function leasedBooksTableWrite() {
 
     if (leasedBooks.length === 0) {
         const row = document.createElement("tr");
-        const messageCell= document.createElement("th");
+        const messageCell = document.createElement("th");
         messageCell.setAttribute("colspan", "4");
         messageCell.textContent = "Kiralanmış bir kitap bulunamadı.";
         row.appendChild(messageCell);
@@ -262,4 +262,24 @@ function loadPage() {
     const form = document.getElementById("leasedBookForm");
     form.addEventListener("submit", addRentABook);
     createLeaseABookForm();
+    pageSection();
+    $(window).on('hashchange', function(e){
+        pageSection(e.originalEvent.newURL.split("#")[1]);
+    });
+}
+
+function pageSection(hash) {
+    if (hash) {
+        sectionToggle("#"+hash);
+    } else {
+        sectionToggle("#users");
+    }
+}
+
+function sectionToggle(section) {
+    const sections = document.querySelectorAll("section");
+    sections.forEach((section) => {
+        $(section).fadeOut(0);
+    });
+    $(section).fadeIn(500);
 }
