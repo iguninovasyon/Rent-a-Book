@@ -262,7 +262,7 @@ function loadPage() {
     const form = document.getElementById("leasedBookForm");
     form.addEventListener("submit", addRentABook);
     createLeaseABookForm();
-    pageSection();
+    pageSection(window.location.href.split("#")[1]);
     $(window).on('hashchange', function (e) {
         pageSection(e.originalEvent.newURL.split("#")[1]);
     });
